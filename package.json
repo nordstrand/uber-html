@@ -1,0 +1,16 @@
+{
+  "name": "uber-html",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "datauri": "^0.5.5",
+    "htmlparser2": "^3.8.2",
+    "ineed": "^1.0.2"
+  }
+}
