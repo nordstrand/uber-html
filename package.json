@@ -12,5 +12,10 @@
     "datauri": "^0.5.5",
     "htmlparser2": "^3.8.2",
     "ineed": "^1.0.2"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "chai-fs": "^0.1.0",
+    "mocha": "^2.0.1"
   }
 }
