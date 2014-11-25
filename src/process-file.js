@@ -13,7 +13,6 @@ module.exports = function(file) {
         .using(require('./inline-img'))
         .using(require('./inline-script'))
         .reprocess
-     //   .title(function() { return "wtf"; })
         .inlineImg(file)
         .inlineScript(file)
         .fromHtml(html);

@@ -17,30 +17,31 @@ module.exports = {
 
     onStartTag: function (startTag) {
         if (startTag.tagName === 'script') {
-            var src = Common.getAttrValue(startTag.attrs, 'src') || '';
-            this.src = src;
+            this.nukeNextEndTag = false;
             
-            var file = this.resolveSrc(this.src);
+            var src = Common.getAttrValue(startTag.attrs, 'src');
             
-            if (fs.existsSync(file)) {
-                console.log("Exists:", file);
-                this.data = fs.readFileSync(file, 'utf-8');
-            } else {
-                this.data = undefined;
+            if (src) {
+                var file = this.resolveSrc(src);
+
+                if (fs.existsSync(file)) {
+                    var data = fs.readFileSync(file, 'utf-8');
+                    startTag.attrs=[];
+                    startTag.tagName = 'script>' + data + '</script';
+                    this.nukeNextEndTag = true;
+                }
             }
         }
 
         return startTag;
     },
     
-    onText: function (text) {
-        if (this.ctx.leadingStartTag === 'script' && this.data) {
-            //this.data = undefined;
-            
-            return this.data;
+    onEndTag: function (endTag) {
+        if (endTag === 'script' && this.nukeNextEndTag) {
+            endTag =  null;
         }
-
-        return text;
+        
+        return endTag;
     },
 
     resolveSrc: function(src) {

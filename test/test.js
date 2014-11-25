@@ -6,8 +6,6 @@ var assert = require("assert"),
     processFile = require("../src/process-file");
     
 describe("uberhtml", function() {
-
-
     before(function() {
         chai.should();
         chai.use(require('chai-fs'));
@@ -17,10 +15,13 @@ describe("uberhtml", function() {
         done();
     });
 
-    it("should convert html", function() {
-        assertFile("img-inline");
+    ["img-inline", "script-inline"].forEach(function(t) {
+        it(t + " plugin should return expected html", function() {
+            assertFile(t);
+        });
     });
-    
+     
+
     function assertFile(file) {
         processFile("test/" + file + "/index.html");
         
@@ -30,6 +31,4 @@ describe("uberhtml", function() {
                                  "/index.expected.html",
                                 "utf-8"));
     }
-
-    
 });
