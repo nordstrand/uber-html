@@ -15,7 +15,7 @@ describe("uberhtml", function() {
         done();
     });
 
-    ["img-inline", "script-inline"].forEach(function(t) {
+    ["img-inline", "script-inline", "link-inline"].forEach(function(t) {
         it(t + " plugin should return expected html", function() {
             assertFile(t);
         });

@@ -12,9 +12,11 @@ module.exports = function(file) {
     var reprocessedHtml = ineed
         .using(require('./inline-img'))
         .using(require('./inline-script'))
+        .using(require('./inline-link'))
         .reprocess
         .inlineImg(file)
         .inlineScript(file)
+        .inlineLink(file)
         .fromHtml(html);
 
 
