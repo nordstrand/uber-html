@@ -9,9 +9,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cheerio": "^0.18.0",
     "datauri": "^0.5.5",
     "htmlparser2": "^3.8.2",
-    "ineed": "^1.0.2"
+    "ineed": "^1.0.2",
+    "mime": "^1.2.11",
+    "rework": "^1.0.1",
+    "rework-plugin-function": "^1.0.1"
   },
   "devDependencies": {
     "chai": "^1.10.0",
