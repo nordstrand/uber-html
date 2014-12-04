@@ -13,9 +13,7 @@ module.exports = function(file) {
     
     var basePath = path.dirname(file);
 
-    var reprocessedHtml = inlineLink(html, basePath);
-
-   // console.log(reprocessedHtml);
+    var reprocessedHtml = inlineLink(inlineImg(html, basePath), basePath);
 
     var outFilePath = getOutputPath(file);
 
